@@ -2,29 +2,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Nox and Noon</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+  color: #e0dede;
+  font-family: 'Playfair Display', serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background: #111;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  color: white;
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="author.html">Author</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Contact Us</h1>
-        <p>Reach us at info@NoxAndNoon.com. We'd love to hear from you.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Nox and Noon. All rights reserved.</p>
-    </footer>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="books.html">Books</a>
+    <a href="author.html">Author</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <main>
+    <h1>Contact</h1>
+    <p>For inquiries, email us at info@NoxAndNoon.com. We’d love to hear from you.</p>
+    <p><a href="index.html" style="color: #ccc; font-family: 'Roboto', sans-serif;">→ Continue</a></p>
+  </main>
+  <footer>
+    <p>&copy; 2025 Nox and Noon</p>
+  </footer>
 </body>
 </html>
