@@ -1,69 +1,233 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Nox and Noon</title>
+  <title>Nox and Noon</title>
+  <link rel="stylesheet" href="="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Courier+Prime&display=swap" rel="stylesheet">
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap');
-
-body {
-  margin: 0;
-  padding: 0;
-  background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
-  color: #e0dede;
-  font-family: 'Playfair Display', serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-nav {
-  background: #111;
-  padding: 1rem 0;
-  text-align: center;
-}
-
-nav a {
-  margin: 0 15px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-}
-
-main {
-  flex: 1;
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #111;
-  color: white;
-}
-</style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #eaeaea;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      position: relative;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f4d000;
+      letter-spacing: 2px;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .lang-toggle img {
+      width: 24px;
+      vertical-align: middle;
+      margin-left: 0.5rem;
+    }
+    .moon-sun-wrapper {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 2rem auto;
+    }
+    .moon, .sun {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      transition: opacity 3s ease-in-out;
+    }
+    .moon {
+      background: radial-gradient(circle at 30% 30%, #ccc 30%, transparent 70%);
+      box-shadow: inset -20px -20px 60px #333, 0 0 15px #aaa;
+      z-index: 2;
+      animation: fadeMoon 12s ease-in-out infinite alternate;
+    }
+    .sun {
+      background: radial-gradient(circle at center, #ffd700 40%, transparent 70%);
+      box-shadow: 0 0 25px #ffd700, 0 0 50px #ffd70088;
+      opacity: 0;
+      z-index: 1;
+      animation: fadeSun 12s ease-in-out infinite alternate;
+    }
+    @keyframes fadeMoon {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes fadeSun {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .tagline {
+      font-family: 'Courier Prime', monospace;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      text-align: center;
+      min-height: 2em;
+    }
+    .intro {
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+    .cta-button {
+      display: block;
+      margin: 2rem auto;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      box-shadow: 0 0 15px #f4d000;
+      color: #000;
+      background: #f4d000;
+    }
+    nav {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      color: #f4d000;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background: #111;
+      color: #aaa;
+      margin-top: auto;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: #aaa;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #f4d000;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+  </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="books.html">Books</a>
-    <a href="author.html">Author</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <main>
-    <h1>About Nox and Noon</h1>
-    <p>Nox and Noon is a literary imprint dedicated to evocative, genre-blurring fiction.</p>
-    <p><a href="books.html" style="color: #ccc; font-family: 'Roboto', sans-serif;">→ Continue</a></p>
-  </main>
+  <header>
+    <div class="logo">[Nox and Noon]</div>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span id="lang-label">Español</span>
+      <img id="lang-flag" src="https://flagcdn.com/us.svg" alt="Toggle language" />
+    </div>
+    <div class="moon-sun-wrapper">
+      <div class="moon"></div>
+      <div class="sun"></div>
+    </div>
+    <div class="tagline" id="tagline"></div>
+  </header>
+
+  <div class="lang-content en active">
+    <div class="intro">
+      <p>Nox and Noon is a literary imprint dedicated to evocative, genre-blurring fiction.</p>
+    </div>
+    <a href="about.html" class="cta-button">Turn the Page</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="books.html">Books</a>
+      <a href="author.html">Author</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <div class="lang-content es">
+    <div class="intro">
+      <p><strong>Nox and Noon es un sello literario dedicado a la ficción evocadora y que desdibuja los géneros.</p>
+    </div>
+    <a href="about.html" class="cta-button">Pasar la Página</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Acerca</a>
+      <a href="books.html">Libros</a>
+      <a href="author.html">Autor</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+  </div>
+
   <footer>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+    </div>
     <p>&copy; 2025 Nox and Noon</p>
   </footer>
+
+  <script>
+    const textEN = "About Nox and Noon";
+    const textES = "Sobre Nox and Noon";
+    const taglineEl = document.getElementById("tagline");
+    let lang = 'en';
+
+    function typeWriter(text, i = 0) {
+      if (i < text.length) {
+        taglineEl.innerHTML += text.charAt(i);
+        setTimeout(() => typeWriter(text, i + 1), 45);
+      }
+    }
+
+    function toggleLang() {
+      const enBlock = document.querySelector('.lang-content.en');
+      const esBlock = document.querySelector('.lang-content.es');
+      const label = document.getElementById('lang-label');
+      const flag = document.getElementById('lang-flag');
+      taglineEl.innerHTML = '';
+      if (lang === 'en') {
+        lang = 'es';
+        enBlock.classList.remove('active');
+        esBlock.classList.add('active');
+        label.textContent = 'English';
+        flag.src = 'https://flagcdn.com/mx.svg';
+        typeWriter(textES);
+      } else {
+        lang = 'en';
+        enBlock.classList.add('active');
+        esBlock.classList.remove('active');
+        label.textContent = 'Español';
+        flag.src = 'https://flagcdn.com/us.svg';
+        typeWriter(textEN);
+      }
+    }
+
+    window.onload = () => typeWriter(textEN);
+  </script>
 </body>
 </html>
