@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +16,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+	  min-height: 100dvh;
     }
     header {
       text-align: center;
@@ -85,7 +85,7 @@
       min-height: 2em;
     }
     .intro {
-      max-width: 700px;
+      max-width: 900px;
       margin: 2rem auto;
       text-align: center;
       font-size: 1rem;
@@ -127,6 +127,9 @@
       background: #111;
       color: #aaa;
       margin-top: auto;
+	  left: 0;
+      bottom: 0;
+      width: 100%;
     }
     .social-icons a {
       margin: 0 10px;
@@ -144,6 +147,12 @@
   background-color: transparent;
   text-decoration: none;
     }
+	.alignleft {
+	float: left;
+	}
+	.alignright {
+	float: right;
+	}
   </style>
 </head>
 <body>
@@ -165,9 +174,13 @@
 
   <div class="lang-content en active">
     <div class="intro">
-      <p><strong>Established MMXXV</strong>, Nox and Noon is a dual-vision imprint dedicated to publishing high-quality fantasy literature across a spectrum of voices and traditions. We are committed to elevating work that blends imaginative storytelling with literary craft, with a particular focus on supporting Latino authors within the genre.</p>
-    </div>
-    <a href="about.html" class="cta-button">Turn the Page</a>
+      <p>Established MMXXV, Nox and Noon is a dual-vision imprint dedicated to publishing high-quality fantasy literature across a spectrum of voices and traditions. We are committed to elevating work that blends imaginative storytelling with literary craft, with a particular focus on supporting Latino authors within the genre.</p>
+		<p>FAN POLICY: The author and Nox and Noon Press retain all copyrights in their Creative Works. This means no copies, distributions, derivative works, and public displays. A “derivative work” is a work based on one or more of a Nox and Noon Press property. Nox and Noon does not permit public displays of any text or art from any of their works. Any license or permission to use any intellectual property from Nox and Noon Press, or permission to claim that fan product is “official,” MUST BE IN WRITING and is otherwise invalid.</p>
+   </div>
+	<nav> 
+	<a href="contact.html"class="alignleft">&laquo; Turn the Page</a>
+	<a href="about.html"class="alignright">Turn the Page &raquo;</a>
+	</nav>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -180,8 +193,12 @@
   <div class="lang-content es">
     <div class="intro">
       <p><strong>Fundado en MMXXV</strong>, Nox and Noon es un sello de visión dual dedicado a publicar literatura fantástica de alta calidad a través de una variedad de voces y tradiciones. Estamos comprometidos a elevar obras que fusionen narrativas imaginativas con calidad literaria, con un enfoque especial en apoyar a autores latinos dentro del género.</p>
-    </div>
-    <a href="about.html" class="cta-button">Pasar la Página</a>
+    <p>POLÍTICA PARA FANS: El autor y Nox and Noon Press conservan todos los derechos de autor de sus Obras Creativas. Esto significa que no se permiten copias, distribuciones, obras derivadas ni exhibiciones públicas. Una "obra derivada" es una obra basada en una o más de las propiedades de Nox and Noon Press. Nox and Noon no permite exhibiciones públicas de ningún texto ni arte de sus obras. Cualquier licencia o permiso para usar cualquier propiedad intelectual de Nox and Noon Press, o permiso para afirmar que un producto de fans es "oficial", DEBE CONSTITUIRSE POR ESCRITO y, en caso contrario, no será válido.</p>
+	</div>
+	<nav>
+	<a href="contact.html"class="alignleft">&laquo; Página Anterior</a>
+	<a href="about.html"class="alignright">Pasar la Página &raquo;</a>
+	</nav>
     <nav>
       <a href="index.html">Inicio</a>
       <a href="about.html">Acerca</a>
@@ -193,10 +210,24 @@
 
   <footer>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <style>
+      .fa {
+      padding: 5px;
+      font-size: 20px;
+      width: 35px;
+      text-align: center;
+      text-decoration: none;
+      margin: 2px 2px;
+      border-radius: 5%;
+      }
+      .fa:hover {
+      opacity: 0.7;
+      }
+      </style>
+      <a href="https://www.facebook.com/"><img src="images/facebook-app-round-white-icon.png" class="fa fa-facebook"></a>
+      <a href="https://x.com/"><img src="images/x-social-media-white-round-icon.png" class="fa fa-twitter"></a>
+      <a href="https://www.instagram.com/"><img src="images/instagram-white-icon.png" class="fa fa-instagram"></a>
+      <a href="https://www.tiktok.com/"><img src="images/tiktok-round-white-icon.png" class="fa fa-tiktok"></a>
     </div>
     <p>&copy; 2025 Nox and Noon</p>
   </footer>
