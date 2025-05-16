@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: #000;
+      background-image: url('images/NoxAndNoonBackground.png');
       color: #eaeaea;
       font-family: 'Playfair Display', serif;
       display: flex;
@@ -137,6 +138,13 @@
     }
     .lang-content { display: none; }
     .lang-content.active { display: block; }
+
+    a:link {
+  color: #990000;
+  background-color: transparent;
+  text-decoration: none;
+}
+
   </style>
 </head>
 <body>
@@ -155,7 +163,7 @@
 
   <div class="lang-content en active">
     <div class="inquiries">
-      <p>For inquiries, email us at <a href="mailto:info@NoxAndNoon.com">info@NoxAndNoon.com</a>. We’d love to hear from you.</p>
+      <p>For inquiries, email us at <a href="mailto:info@NoxAndNoon.com"><u>info@NoxAndNoon.com</u></a>. We’d love to hear from you.</p>
     </div>
     <a href="index.html" class="cta-button">Turn the Page</a>
     <nav>
@@ -169,7 +177,7 @@
 
   <div class="lang-content es">
     <div class="inquiries">
-      <p>Para consultas, envíenos un correo electrónico a <a href="mailto:info@NoxAndNoon.com">info@NoxAndNoon.com</a>. Nos encantaría saber de usted.</p>
+      <p>Para consultas, envíenos un correo electrónico a <a href="mailto:info@NoxAndNoon.com"><u>info@NoxAndNoon.com</u></a>. Nos encantaría saber de usted.</p>
   </div>
     <a href="index.html" class="cta-button">Pasar la Página</a>
     <nav>
@@ -183,10 +191,24 @@
 
   <footer>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <style>
+      .fa {
+      padding: 5px;
+      font-size: 20px;
+      width: 35px;
+      text-align: center;
+      text-decoration: none;
+      margin: 2px 2px;
+      border-radius: 5%;
+      }
+      .fa:hover {
+      opacity: 0.7;
+      }
+      </style>
+      <a href="https://www.facebook.com/"><img src="images/facebook-app-round-white-icon.png" class="fa fa-facebook"></a>
+      <a href="https://x.com/"><img src="images/x-social-media-white-round-icon.png" class="fa fa-twitter"></a>
+      <a href="https://www.instagram.com/"><img src="images/instagram-white-icon.png" class="fa fa-instagram"></a>
+      <a href="https://www.tiktok.com/"><img src="images/tiktok-round-white-icon.png" class="fa fa-tiktok"></a>
     </div>
     <p>&copy; 2025 Nox and Noon</p>
   </footer>
