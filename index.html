@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       background-image: url('images/NoxAndNoonBackground.png');
+	  background-color: #000000;
       color: #eaeaea;
       font-family: 'Playfair Display', serif;
       display: flex;
@@ -20,14 +21,15 @@
     }
     header {
       text-align: center;
-      padding: 2rem 0 1rem;
+      padding: 1rem 0 1rem;
       position: relative;
     }
     .logo {
       font-size: 2rem;
       font-weight: bold;
       color: #f4d000;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+	  padding: 0 0 2rem;
     }
     .lang-toggle {
       position: absolute;
@@ -37,7 +39,7 @@
       font-size: 1rem;
     }
     .lang-toggle img {
-      width: 24px;
+      width: 20px;
       vertical-align: middle;
       margin-left: 0.5rem;
     }
@@ -46,7 +48,7 @@
       font-size: 1.2rem;
       margin-top: 1rem;
       text-align: center;
-      min-height: 2em;
+      min-height: 2rem;
     }
     .intro {
       max-width: 900px;
@@ -58,7 +60,7 @@
     .cta-button {
       display: block;
       margin: 2rem auto;
-      padding: 0.75rem 2rem;
+      padding: 0.5rem 2rem;
       font-size: 1rem;
       border: 2px solid #fff;
       background: transparent;
@@ -79,21 +81,21 @@
       margin: 0 10px;
       color: #ccc;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     nav a:hover {
       color: #f4d000;
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      padding: .5rem;
+      font-size: 0.8rem;
       background: #111;
       color: #aaa;
       margin-top: auto;
 	  left: 0;
       bottom: 0;
-      width: 100%;
+      width: auto;
     }
     .social-icons a {
       margin: 0 10px;
@@ -106,11 +108,6 @@
     .lang-content { display: none; }
     .lang-content.active { display: block; }
 
-    a:link { 
-	color: #990000;
-	background-color: transparent;
-	text-decoration: none;
-    }
   </style>
 </head>
 <body>
@@ -120,7 +117,7 @@
        style="max-width: 180px; height: auto; display: block; margin: 0 auto;" />
     </div>
     <div class="lang-toggle" onclick="toggleLang()">
-      <span id="lang-label">Español</span>
+      <span id="lang-label">Language</span>
       <img id="lang-flag" src="https://flagcdn.com/us.svg" alt="Toggle language" />
     </div>
     <div class="tagline" id="tagline">
@@ -129,7 +126,7 @@
 
   <div class="lang-content en active">
     <div class="intro">
-      <p>Established MMXXV, Nox and Noon is a dual-vision imprint dedicated to publishing high-quality fantasy literature across a spectrum of voices and traditions. We are committed to elevating work that blends imaginative storytelling with literary craft, with a particular focus on supporting Latino authors within the genre.</p>
+      <p>Established in 2025, Nox and Noon is a dual-vision imprint dedicated to publishing high-quality fantasy literature across a spectrum of voices and traditions. We are committed to elevating work that blends imaginative storytelling with literary craft, with a particular focus on supporting Latino authors within the genre.</p>
 	  <p>FAN POLICY: The author and Nox and Noon Press retain all copyrights in their Creative Works. This means no copies, distributions, derivative works, and public displays. A “derivative work” is a work based on one or more of a Nox and Noon Press property. Nox and Noon does not permit public displays of any text or art from any of their works. Any license or permission to use any intellectual property from Nox and Noon Press, or permission to claim that fan product is “official,” MUST BE IN WRITING and is otherwise invalid.</p>
     </div>
 	<nav>
@@ -143,7 +140,7 @@
 
   <div class="lang-content es">
     <div class="intro">
-      <p>Fundado en MMXXV, Nox and Noon es un sello de visión dual dedicado a publicar literatura fantástica de alta calidad a través de una variedad de voces y tradiciones. Estamos comprometidos a elevar obras que fusionen narrativas imaginativas con calidad literaria, con un enfoque especial en apoyar a autores latinos dentro del género.</p>
+      <p>Fundado en 2025, Nox and Noon es un sello de visión dual dedicado a publicar literatura fantástica de alta calidad a través de una variedad de voces y tradiciones. Estamos comprometidos a elevar obras que fusionen narrativas imaginativas con calidad literaria, con un enfoque especial en apoyar a autores latinos dentro del género.</p>
 	  <p>POLÍTICA PARA FANS: El autor y Nox and Noon Press conservan todos los derechos de autor de sus Obras Creativas. Esto significa que no se permiten copias, distribuciones, obras derivadas ni exhibiciones públicas. Una "obra derivada" es una obra basada en una o más de las propiedades de Nox and Noon Press. Nox and Noon no permite exhibiciones públicas de ningún texto ni arte de sus obras. Cualquier licencia o permiso para usar cualquier propiedad intelectual de Nox and Noon Press, o permiso para afirmar que un producto de fans es "oficial", DEBE CONSTITUIRSE POR ESCRITO y, en caso contrario, no será válido.</p>
 	</div>
     <nav>
@@ -159,7 +156,7 @@
     <div class="social-icons">
       <style>
       .fa {
-      padding: 5px;
+      padding: 2px;
       font-size: 20px;
       width: 35px;
       text-align: center;
@@ -171,12 +168,12 @@
       opacity: 0.7;
       }
       </style>
-      <a href="https://www.facebook.com/"><img src="images/facebook-app-round-white-icon.png" class="fa fa-facebook"></a>
+      <a href="https://www.facebook.com/NoxAndNoon/"><img src="images/facebook-app-round-white-icon.png" class="fa fa-facebook"></a>
       <a href="https://x.com/"><img src="images/x-social-media-white-round-icon.png" class="fa fa-twitter"></a>
       <a href="https://www.instagram.com/"><img src="images/instagram-white-icon.png" class="fa fa-instagram"></a>
       <a href="https://www.tiktok.com/"><img src="images/tiktok-round-white-icon.png" class="fa fa-tiktok"></a>
     </div>
-    <p>&copy; 2025 Nox and Noon</p>
+    <p>&copy; 2025 Nox and Noon Press</p>
   </footer>
 
   <script>
@@ -202,14 +199,14 @@
         lang = 'es';
         enBlock.classList.remove('active');
         esBlock.classList.add('active');
-        label.textContent = 'English';
+        label.textContent = 'Español';
         flag.src = 'https://flagcdn.com/mx.svg';
         typeWriter(textES);
       } else {
         lang = 'en';
         enBlock.classList.add('active');
         esBlock.classList.remove('active');
-        label.textContent = 'Español';
+        label.textContent = 'English';
         flag.src = 'https://flagcdn.com/us.svg';
         typeWriter(textEN);
       }
