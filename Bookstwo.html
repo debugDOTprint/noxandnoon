@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nox and Noon
+	</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Courier+Prime&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f6;
+			font-family: 'Playfair Display', serif;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			min-height: 100dvh;
+		}
+		header {
+			margin: 0;
+			padding: 0;
+			position: relative;
+			text-align: center;
+			color: #f7f7f7;
+			background-image: url('images/NoxAndNoonBackgroundTop.png');
+		}
+		.logo {
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			font-size: 1rem;	
+		}
+		.lang-toggle {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			cursor: pointer;
+			font-size: 1rem;
+		}
+		.lang-toggle img {
+			width: 20px;
+			vertical-align: middle;
+			margin-left: 5px;
+		}
+		.tagline {
+			font-family: 'Courier Prime', monospace;
+			font-size: 1.2rem;
+			margin-top: 20px;
+			text-align: center;
+			min-height: auto;
+			background-color: #000;
+			color: white; 
+			padding: 40px;
+			width:60%;
+			max-width: 900px;
+		}
+		.bottomtagline {
+			font-family: 'Courier Prime', monospace;
+			font-size: 1.2rem;
+			margin-bottom: 20px;
+			text-align: center;
+			min-height: auto;
+			background-color: #000;
+			color: white; 
+			padding: 40px;
+			width: 60%;
+			max-width: 900px;
+			margin-left: auto;
+		}
+		.intro {
+		  max-width: 900px;
+		  margin: 2rem auto;
+		  text-align: center;
+		  font-size: 1rem;
+		  padding: 0 1rem;
+		}
+		.cta-button {
+			display: block;
+			margin: 2rem auto;
+			padding: 0.5rem 2rem;
+			font-size: 1rem;
+			border: 2px solid #fff;
+			background: transparent;
+			color: #fff;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+		.cta-button:hover {
+			box-shadow: 0 0 15px #f4d000;
+		    color: #000;
+		    background: #f4d000;
+		}
+		nav {
+		    text-align: center;
+		    margin-top: 2rem;
+		}
+		nav a {
+			margin: 1px 10px;
+			color: #f7f7f7;
+			text-decoration: none;
+			font-size: 1rem;
+		}
+		nav a:hover {
+			color: #f4d000;
+		}
+	   footer {
+			margin-top: auto;
+			padding: 0;
+			position: relative;
+			text-align: center;
+			font-size: 0.8rem;
+			color: #f7f7f7;
+			background-image: url('images/NoxAndNoonBackgroundBottom.png');
+		}
+		.social-icons a {
+		    margin: 0 10px;
+		    color: #aaa;
+		    text-decoration: none;
+		}
+		.social-icons a:hover {
+		    color: #f4d000;
+		}
+		.lang-content { 
+			display: none; 
+		}
+		.lang-content.active { 
+			display: block; 
+		}
+		@media screen and (max-width: 600px) {
+			.bottomtagline {
+				font-size: 1rem;
+				padding: 20px;
+				width: min(75%, 600px);
+				}
+		}
+		@media screen and (max-width: 600px) {
+			.bottomtagline {
+				font-size: 1rem;
+				padding: 20px;
+				width: min(75%, 600px);
+				}
+		}
+		.navbar {
+			position: relative;
+			justify-items: center;
+	  	}
+		.menu {
+			display: flex;
+			list-style: none;
+			gap: 20px;
+			padding: 0;
+			margin: 0;
+		}
+		.menu-icon {
+			display: none;
+			cursor: pointer;
+			font-size: 2rem;
+			color: white;
+		}
+		#menu-toggle-en,
+		#menu-toggle-es {
+			display: none;
+		}
+		@media (max-width: 768px) {
+			.menu {
+				display: none;
+				flex-direction: column;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background-image: url('images/NoxAndNoonBackgroundTop.png');
+				width: 100%;
+			}
+			#menu-toggle-en:checked + .menu-icon + .menu,
+			#menu-toggle-es:checked + .menu-icon + .menu {
+				display: flex;
+			}
+			.menu-icon {
+				display: block;
+			}
+		}
+		.menu a {
+			text-decoration: none;
+		}
+		.menu a:hover {
+			color: #f4d000;
+		}
+
+        /*
+         * Book card styling (imported from book_layout.html)
+         * These classes define the layout and appearance for the
+         * side‑by‑side book cover and details.  They live in the
+         * global stylesheet so they can be reused anywhere in this page.
+         */
+        .book-card {
+          display: flex;
+          flex-direction: row;
+          background-color: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          max-width: 900px;
+          margin: 2rem auto;
+        }
+        .book-cover {
+          flex: 0 0 266px;
+          margin-right: 24px;
+        }
+        .book-cover img {
+          display: block;
+          width: 100%;
+          height: auto;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        .book-details {
+          flex: 1 1 auto;
+        }
+        .book-title {
+          margin-top: 0;
+          margin-bottom: 8px;
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+        .book-subtitle {
+          margin-top: 0;
+          margin-bottom: 16px;
+          font-size: 16px;
+          color: #666;
+        }
+        .book-info {
+          list-style: none;
+          padding-left: 0;
+          margin-top: 0;
+          margin-bottom: 16px;
+        }
+        .book-info li {
+          margin-bottom: 6px;
+        }
+        .book-info span {
+          font-weight: 600;
+        }
+        .book-description {
+          font-size: 15px;
+          color: #444;
+        }
+        @media (max-width: 640px) {
+          .book-card {
+            flex-direction: column;
+          }
+          .book-cover {
+            margin-right: 0;
+            margin-bottom: 16px;
+          }
+        }
+</style>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="images/NoxAndNoonFinalLogo.png" alt="Nox and Noon Logo" style="max-width: 80px; height: auto; display: block; margin: 5px"/>	
+		</div>
+		<div class="lang-content en active">
+			<nav class="navbar">
+				<input type="checkbox" id="menu-toggle-en" />
+  				<label for="menu-toggle-en" class="menu-icon">&#9776;</label>
+  				<ul class="menu">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="books.html">Books</a></li>
+					<li><a href="author.html">Author</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="lang-content es">
+			<nav class="navbar">
+				<input type="checkbox" id="menu-toggle-es" />
+				<label for="menu-toggle-es" class="menu-icon">&#9776;</label>
+				<ul class="menu">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="about.html">Acerca</a></li>
+					<li><a href="books.html">Libros</a></li>
+					<li><a href="author.html">Autor</a></li>
+					<li><a href="contact.html">Contacto</a></li>
+				</ul>
+			</nav>
+		</div>
+	    <div class="lang-toggle" onclick="toggleLang()">
+			<span id="lang-label">Language</span>
+			<img id="lang-flag" src="https://flagcdn.com/us.svg" alt="Toggle language" />
+		</div>
+		</br>
+		</div>
+	</header>
+<main>
+  <div class="lang-content en active">
+	<div class="tagline" id="tagline"></div>
+		<div class="intro">
+      		<p>Established in 2025, Nox and Noon is a dual-vision imprint dedicated to publishing high-quality fantasy literature across a spectrum of voices and traditions. We are committed to elevating work that blends imaginative storytelling with literary craft, with a particular focus on supporting Latino authors within the genre.</p>
+			</br>
+			<p>FAN POLICY: </br>
+			</p>
+			<p>The author and Nox and Noon Press retain all copyrights in their Creative Works. This means no copies, distributions, derivative works, and public displays. A “derivative work” is a work based on one or more of a Nox and Noon Press property. Nox and Noon does not permit public displays of any text or art from any of their works. Any license or permission to use any intellectual property from Nox and Noon Press, or permission to claim that fan product is “official,” MUST BE IN WRITING and is otherwise invalid.</p>
+    	</div>
+		<div class="bottomtagline" id="bottomtagline">More information coming soon - Stay tuned! 
+		</div>
+	</div>
+
+	<div class="lang-content es">
+		<div class="tagline" id="tagline"></div>
+    	<div class="intro">
+      		<p>Fundado en 2025, Nox and Noon es un sello de visión dual dedicado a publicar literatura fantástica de alta calidad a través de una variedad de voces y tradiciones. Estamos comprometidos a elevar obras que fusionen narrativas imaginativas con calidad literaria, con un enfoque especial en apoyar a autores latinos dentro del género.</p>
+			</br>
+			<p>POLÍTICA PARA FANS: </br>
+			</p>
+			<p>El autor y Nox and Noon Press conservan todos los derechos de autor de sus Obras Creativas. Esto significa que no se permiten copias, distribuciones, obras derivadas ni exhibiciones públicas. Una "obra derivada" es una obra basada en una o más de las propiedades de Nox and Noon Press. Nox and Noon no permite exhibiciones públicas de ningún texto ni arte de sus obras. Cualquier licencia o permiso para usar cualquier propiedad intelectual de Nox and Noon Press, o permiso para afirmar que un producto de fans es "oficial", DEBE CONSTITUIRSE POR ESCRITO y, en caso contrario, no será válido.</p>
+		</div>
+		<div class="bottomtagline" id="bottomtagline">Próximamente habrá más información. ¡Permanezca atento! 
+		</div>
+	</div>
+	
+    <!-- Inserted book card begins -->
+    <div class="book-card">
+      <div class="book-cover">
+        <!-- Use a remote cover image from Syndetics; replace with your own if necessary -->
+        <img src="https://secure.syndetics.com/index.aspx?isbn=9798992868708/lc.gif" alt="A Melody of Crimson Regrets book cover">
+      </div>
+      <div class="book-details">
+        <h1 class="book-title">A Melody of Crimson Regrets</h1>
+        <p class="book-subtitle">be the first to rate this</p>
+        <ul class="book-info">
+          <li><span>Author:</span> Manuel Cacho</li>
+          <li><span>ISBN:</span> 979-8-9928687-0-8</li>
+          <li><span>Publication Date:</span> August&nbsp;2025</li>
+          <li><span>Publisher:</span> Nox &amp; Noon Press</li>
+          <li><span>Format:</span> Paperback</li>
+          <li><span>List Price:</span> USD&nbsp;$19.99</li>
+        </ul>
+        <div class="book-description">
+          <p><strong>Book Description:</strong></p>
+          <p>
+            SOME CARRY THEIR ENTIRE HISTORIES. OTHERS TAKE ONLY THEIR REGRETS. Vampire‑turned‑blacksmith
+            Christian Nikolai Dusk has spent two centuries trying to bury the past—if he could tune out
+            the voices of the dead, he just might succeed. Unfortunately, he can’t.
+          </p>
+          <p>
+            To protect the woman he loves, Christian finds himself in the crosshairs of the Coven he abandoned,
+            face‑to‑face with a man he once forced to kneel before him. Has a lifetime of loss prepared him
+            for the inevitable, or will he finally weaponize the voices of the dead to reclaim everything he’s
+            lost?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Inserted book card ends -->
+
+</main>
+  <footer>
+    	<div class="social-icons">
+      		<style>
+				.fa {
+					padding: 2px;
+					font-size: 20px;
+					width: 35px;
+					text-align: center;
+					text-decoration: none;
+					margin: 2px 2px;
+					border-radius: 5%;
+				}
+				.fa:hover {
+					opacity: 0.7;
+				}
+      		</style>
+			<a href="https://www.facebook.com/NoxAndNoon/"><img src="images/facebook-app-round-white-icon.png" class="fa fa-facebook"></a>
+			<a href="https://x.com/"><img src="images/x-social-media-white-round-icon.png" class="fa fa-twitter"></a>
+			<a href="https://www.instagram.com/"><img src="images/instagram-white-icon.png" class="fa fa-instagram"></a>
+			<a href="https://www.tiktok.com/"><img src="images/tiktok-round-white-icon.png" class="fa fa-tiktok"></a>
+		</div>
+    	<p>&copy; 2025 Nox and Noon Press</p>
+  </footer>
+
+  <script>
+		const textEN = "Complementary imprint for writers at all stages of their journey.";
+		const textES = "Sello complementario para escritores en todas las etapas de su trayectoria.";
+		function getActiveTaglineElement() {
+   		return document.querySelector(".lang-content.active .tagline");
+		}
+		let lang = 'en';
+
+		function typeWriter(text, i = 0) {
+    		const el = getActiveTaglineElement();
+    		if (i < text.length) {
+        		el.innerHTML += text.charAt(i);
+        		setTimeout(() => typeWriter(text, i + 1), 45);
+    		}	
+		}
+		function toggleLang() {
+			const enBlocks = document.querySelectorAll('.lang-content.en');
+			const esBlocks = document.querySelectorAll('.lang-content.es');
+			const label = document.getElementById('lang-label');
+			const flag = document.getElementById('lang-flag');
+			getActiveTaglineElement().innerHTML = '';
+			if (lang === 'en') {
+				lang = 'es';
+				enBlocks.forEach(el => el.classList.remove('active'));
+				esBlocks.forEach(el => el.classList.add('active'));
+				label.textContent = 'Español';
+				flag.src = 'https://flagcdn.com/mx.svg';
+				typeWriter(textES);
+			} 
+			else {
+				lang = 'en';
+				enBlocks.forEach(el => el.classList.add('active'));
+				esBlocks.forEach(el => el.classList.remove('active'));
+				label.textContent = 'English';
+				flag.src = 'https://flagcdn.com/us.svg';
+				typeWriter(textEN);
+			}
+		}		
+    	window.onload = () => typeWriter(textEN);
+  </script>
+</body>
+</html>
