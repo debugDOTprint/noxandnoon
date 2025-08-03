@@ -1,220 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nox and Noon</title>
-  <link rel="stylesheet" href="="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Courier+Prime&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url('images/NoxAndNoonBackground.png');
-	  background-color: #000000;
-      color: #eaeaea;
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-	  min-height: 100dvh;
-    }
-    header {
-      text-align: center;
-      padding: 1rem 0 1rem;
-      position: relative;
-    }
-    .logo {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #f4d000;
-      letter-spacing: 1px;
-	  padding: 0 0 2rem;
-    }
-    .lang-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .lang-toggle img {
-      width: 20px;
-      vertical-align: middle;
-      margin-left: 0.5rem;
-    }
-    .tagline {
-      font-family: 'Courier Prime', monospace;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      text-align: center;
-      min-height: 2rem;
-    }
-    .intro {
-      max-width: 900px;
-      margin: 2rem auto;
-      text-align: center;
-      font-size: 1rem;
-      padding: 0 1rem;
-    }
-    .cta-button {
-      display: block;
-      margin: 2rem auto;
-      padding: 0.5rem 2rem;
-      font-size: 1rem;
-      border: 2px solid #fff;
-      background: transparent;
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .cta-button:hover {
-      box-shadow: 0 0 15px #f4d000;
-      color: #000;
-      background: #f4d000;
-    }
-    nav {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    nav a {
-      margin: 0 10px;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      color: #f4d000;
-    }
-    footer {
-      text-align: center;
-      padding: .5rem;
-      font-size: 0.8rem;
-      background: #111;
-      color: #aaa;
-      margin-top: auto;
-	  left: 0;
-      bottom: 0;
-      width: auto;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: #aaa;
-      text-decoration: none;
-    }
-    .social-icons a:hover {
-      color: #f4d000;
-    }
-    .lang-content { display: none; }
-    .lang-content.active { display: block; }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nox and Noon
+	</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Courier+Prime&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f6;
+			font-family: 'Playfair Display', serif;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			min-height: 100dvh;
+		}
+		header {
+			margin: 0;
+			padding: 0;
+			position: relative;
+			text-align: center;
+			color: #f7f7f7;
+			background-image: url('images/NoxAndNoonBackgroundTop.png');
+		}
+		.logo {
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			font-size: 1rem;	
+		}
+		.lang-toggle {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			cursor: pointer;
+			font-size: 1rem;
+		}
+		.lang-toggle img {
+			width: 20px;
+			vertical-align: middle;
+			margin-left: 5px;
+		}
+		.tagline {
+			font-family: 'Courier Prime', monospace;
+			font-size: 1.2rem;
+			margin-top: 20px;
+			text-align: center;
+			min-height: auto;
+			background-color: #000;
+			color: white; 
+			padding: 40px;
+			width:60%;
+			max-width: 900px;
+		}
+		.bottomtagline {
+			font-family: 'Courier Prime', monospace;
+			font-size: 1.2rem;
+			margin-bottom: 20px;
+			text-align: center;
+			min-height: auto;
+			background-color: #000;
+			color: white; 
+			padding: 40px;
+			width: 60%;
+			max-width: 900px;
+			margin-left: auto;
+		}
+		.intro {
+		  max-width: 900px;
+		  margin: 2rem auto;
+		  text-align: center;
+		  font-size: 1rem;
+		  padding: 0 1rem;
+		}
+		.cta-button {
+			display: block;
+			margin: 2rem auto;
+			padding: 0.5rem 2rem;
+			font-size: 1rem;
+			border: 2px solid #fff;
+			background: transparent;
+			color: #fff;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+		.cta-button:hover {
+			box-shadow: 0 0 15px #f4d000;
+		    color: #000;
+		    background: #f4d000;
+		}
+		nav {
+		    text-align: center;
+		    margin-top: 2rem;
+		}
+		nav a {
+			margin: 1px 10px;
+			color: #f7f7f7;
+			text-decoration: none;
+			font-size: 1rem;
+		}
+		nav a:hover {
+			color: #f4d000;
+		}
+	   footer {
+			margin-top: auto;
+			padding: 0;
+			position: relative;
+			text-align: center;
+			font-size: 0.8rem;
+			color: #f7f7f7;
+			background-image: url('images/NoxAndNoonBackgroundBottom.png');
+		}
+		.social-icons a {
+		    margin: 0 10px;
+		    color: #aaa;
+		    text-decoration: none;
+		}
+		.social-icons a:hover {
+		    color: #f4d000;
+		}
+		.lang-content { 
+			display: none; 
+		}
+		.lang-content.active { 
+			display: block; 
+		}
+		@media screen and (max-width: 600px) {
+			.bottomtagline {
+				font-size: 1rem;
+				padding: 20px;
+				width: min(75%, 600px);
+				}
+		}
+		@media screen and (max-width: 600px) {
+			.bottomtagline {
+				font-size: 1rem;
+				padding: 20px;
+				width: min(75%, 600px);
+				}
+		}
+		.navbar {
+			position: relative;
+			justify-items: center;
+	  	}
+		.menu {
+			display: flex;
+			list-style: none;
+			gap: 20px;
+			padding: 0;
+			margin: 0;
+		}
+		.menu-icon {
+			display: none;
+			cursor: pointer;
+			font-size: 2rem;
+			color: white;
+		}
+		#menu-toggle-en,
+		#menu-toggle-es {
+			display: none;
+		}
+		@media (max-width: 768px) {
+			.menu {
+				display: none;
+				flex-direction: column;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background-image: url('images/NoxAndNoonBackgroundTop.png');
+				width: 100%;
+			}
+			#menu-toggle-en:checked + .menu-icon + .menu,
+			#menu-toggle-es:checked + .menu-icon + .menu {
+				display: flex;
+			}
+			.menu-icon {
+				display: block;
+			}
+		}
+		.menu a {
+			text-decoration: none;
+		}
+		.menu a:hover {
+			color: #f4d000;
+		}
 
-  </style>
+        /*
+         * Book card styling (imported from book_layout.html)
+         * These classes define the layout and appearance for the
+         * side‑by‑side book cover and details.  They live in the
+         * global stylesheet so they can be reused anywhere in this page.
+         */
+        .book-card {
+          display: flex;
+          flex-direction: row;
+          background-color: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          max-width: 900px;
+          margin: 2rem auto;
+        }
+        .book-cover {
+          flex: 0 0 266px;
+          margin-right: 24px;
+        }
+        .book-cover img {
+          display: block;
+          width: 100%;
+          height: auto;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        .book-details {
+          flex: 1 1 auto;
+        }
+        .book-title {
+          margin-top: 0;
+          margin-bottom: 8px;
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+        .book-subtitle {
+          margin-top: 0;
+          margin-bottom: 16px;
+          font-size: 16px;
+          color: #666;
+        }
+        .book-info {
+          list-style: none;
+          padding-left: 0;
+          margin-top: 0;
+          margin-bottom: 16px;
+        }
+        .book-info li {
+          margin-bottom: 6px;
+        }
+        .book-info span {
+          font-weight: 600;
+        }
+        .book-description {
+          font-size: 15px;
+          color: #444;
+        }
+        @media (max-width: 640px) {
+          .book-card {
+            flex-direction: column;
+          }
+          .book-cover {
+            margin-right: 0;
+            margin-bottom: 16px;
+          }
+        }
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="images/NoxAndNoonFinalLogo.png" alt="Nox and Noon Logo"
-       style="max-width: 180px; height: auto; display: block; margin: 0 auto;" />
+	<header>
+		<div class="logo">
+			<img src="images/NoxAndNoonFinalLogo.png" alt="Nox and Noon Logo" style="max-width: 80px; height: auto; display: block; margin: 5px"/>	
+		</div>
+		<div class="lang-content en active">
+			<nav class="navbar">
+				<input type="checkbox" id="menu-toggle-en" />
+  				<label for="menu-toggle-en" class="menu-icon">&#9776;</label>
+  				<ul class="menu">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="books.html">Books</a></li>
+					<li><a href="author.html">Author</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="lang-content es">
+			<nav class="navbar">
+				<input type="checkbox" id="menu-toggle-es" />
+				<label for="menu-toggle-es" class="menu-icon">&#9776;</label>
+				<ul class="menu">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="about.html">Acerca</a></li>
+					<li><a href="books.html">Libros</a></li>
+					<li><a href="author.html">Autor</a></li>
+					<li><a href="contact.html">Contacto</a></li>
+				</ul>
+			</nav>
+		</div>
+	    <div class="lang-toggle" onclick="toggleLang()">
+			<span id="lang-label">Language</span>
+			<img id="lang-flag" src="https://flagcdn.com/us.svg" alt="Toggle language" />
+		</div>
+		</br>
+		</div>
+	</header>
+<main>
+  <div class="lang-content en active">	
+    <!-- Inserted book card begins -->
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="images/BookCoverImage.jpg" alt="A Melody of Crimson Regrets book cover">
+      </div>
+      <div class="book-details">
+        <h1 class="book-title">A Melody of Crimson Regrets</h1>
+        <ul class="book-info">
+          <li><span>Author:</span> <a href="author.html">Manuel Cacho</a></li>
+          <li><span>ISBN:</span> 979-8-9928687-0-8</li>
+          <li><span>Publication Date:</span> August&nbsp;15, 2025</li>
+          <li><span>Publisher:</span> Nox &amp; Noon Press</li>
+          <li><span>Format:</span> Paperback</li>
+          <li><span>List Price:</span> USD&nbsp;$19.99</li>
+	  <li><span>Book Description:</span> </li>
+        </ul>
+        <div class="book-description">
+          <!-- <p><strong>Book Description:</strong></p> -->
+          <p>
+            <b>SOME CARRY THEIR ENTIRE HISTORIES. OTHERS TAKE ONLY THEIR REGRETS.</b> 
+	  </p>
+	  <p>Vampire‑turned‑blacksmith Christian Nikolai Dusk has spent two centuries trying to bury the past—if he could tune out
+            the voices of the dead, he just might succeed. Unfortunately, he can’t.
+          </p>
+          <p>
+            To protect the woman he loves, Christian finds himself in the crosshairs of the Coven he abandoned,
+            face‑to‑face with a man he once forced to kneel before him. Has a lifetime of loss prepared him
+            for the inevitable, or will he finally weaponize the voices of the dead to reclaim everything he’s
+            lost?
+          </p>
+		<p>
+			<i>
+<p style="text-align: center;">
+  For the second time in two hundred years,<br>
+  the two men stood before each other,<br>
+  amidst the same conditions,<br>
+  positions reversed.<br>
+  The irony wasn't lost on Dusk.<br>
+  The thrill wasn't lost on Jason.
+</p>
+			</i>
+		</p>
+        </div>
+      </div>
     </div>
-    <div class="lang-toggle" onclick="toggleLang()">
-      <span id="lang-label">Language</span>
-      <img id="lang-flag" src="https://flagcdn.com/us.svg" alt="Toggle language" />
-    </div>
-    <div class="tagline" id="tagline">
-	</div>
-  </header>
-  <div class="book">
-    <img src="images/AMoCRCoverComingSoon.PNG" alt="AMoCRCoverComingSoon"
-     style="max-width: 180px; height: auto; display: block; margin: 0 auto;" />
-  </div>
-  <div class="lang-content en active">
-    <div class="intro">
-      <p>Our flagship title is 'A Melody of Crimson Regrets' — a gothic tale of grief, music, and the undead.</p>
-    </div>
-	<nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="books.html">Books</a>
-      <a href="author.html">Author</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+    <!-- Inserted book card ends -->
 
-  <div class="lang-content es">
-    <div class="intro">
-      <p>Nuestro título estrella es 'A Melody of Crimson Regrets', una historia gótica de dolor, música y no muertos.</p>
-	</div>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="about.html">Acerca</a>
-      <a href="books.html">Libros</a>
-      <a href="author.html">Autor</a>
-      <a href="contact.html">Contacto</a>
-    </nav>
-  </div>
-
+</main>
   <footer>
-    <div class="social-icons">
-      <style>
-      .fa {
-      padding: 2px;
-      font-size: 20px;
-      width: 35px;
-      text-align: center;
-      text-decoration: none;
-      margin: 2px 2px;
-      border-radius: 5%;
-      }
-      .fa:hover {
-      opacity: 0.7;
-      }
-      </style>
-        <a href="https://www.facebook.com/NoxAndNoon/"><img src="images/facebook-app-round-white-icon.png" class="fa fa-facebook"></a>
-	<a href="https://x.com/noxandnoon"><img src="images/x-social-media-white-round-icon.png" class="fa fa-twitter"></a>
-	<a href="https://www.instagram.com/noxandnoon"><img src="images/instagram-white-icon.png" class="fa fa-instagram"></a>
-	<a href="https://www.tiktok.com/@noxandnoon"><img src="images/tiktok-round-white-icon.png" class="fa fa-tiktok"></a>
-    </div>
-    <p>&copy; 2025 Nox and Noon Press</p>
+    	<div class="social-icons">
+      		<style>
+				.fa {
+					padding: 2px;
+					font-size: 20px;
+					width: 35px;
+					text-align: center;
+					text-decoration: none;
+					margin: 2px 2px;
+					border-radius: 5%;
+				}
+				.fa:hover {
+					opacity: 0.7;
+				}
+      		</style>
+			<a href="https://www.facebook.com/NoxAndNoon/"><img src="images/facebook-app-round-white-icon.png" class="fa fa-facebook"></a>
+			<a href="https://x.com/noxandnoon"><img src="images/x-social-media-white-round-icon.png" class="fa fa-twitter"></a>
+			<a href="https://www.instagram.com/noxandnoon"><img src="images/instagram-white-icon.png" class="fa fa-instagram"></a>
+			<a href="https://www.tiktok.com/@noxandnoon"><img src="images/tiktok-round-white-icon.png" class="fa fa-tiktok"></a>
+		</div>
+    	<p>&copy; 2025 Nox and Noon Press</p>
   </footer>
 
   <script>
-    const textEN = "Our Books";
-    const textES = "Nuestros Libros";
-    const taglineEl = document.getElementById("tagline");
-    let lang = 'en';
+		const textEN = "Our Books";
+		const textES = "Nuestros Libros";
+		function getActiveTaglineElement() {
+   		return document.querySelector(".lang-content.active .tagline");
+		}
+		let lang = 'en';
 
-    function typeWriter(text, i = 0) {
-      if (i < text.length) {
-        taglineEl.innerHTML += text.charAt(i);
-        setTimeout(() => typeWriter(text, i + 1), 45);
-      }
-    }
-
-    function toggleLang() {
-      const enBlock = document.querySelector('.lang-content.en');
-      const esBlock = document.querySelector('.lang-content.es');
-      const label = document.getElementById('lang-label');
-      const flag = document.getElementById('lang-flag');
-      taglineEl.innerHTML = '';
-      if (lang === 'en') {
-        lang = 'es';
-        enBlock.classList.remove('active');
-        esBlock.classList.add('active');
-        label.textContent = 'Español';
-        flag.src = 'https://flagcdn.com/mx.svg';
-        typeWriter(textES);
-      } else {
-        lang = 'en';
-        enBlock.classList.add('active');
-        esBlock.classList.remove('active');
-        label.textContent = 'English';
-        flag.src = 'https://flagcdn.com/us.svg';
-        typeWriter(textEN);
-      }
-    }
-
-    window.onload = () => typeWriter(textEN);
+		function typeWriter(text, i = 0) {
+    		const el = getActiveTaglineElement();
+    		if (i < text.length) {
+        		el.innerHTML += text.charAt(i);
+        		setTimeout(() => typeWriter(text, i + 1), 45);
+    		}	
+		}
+		function toggleLang() {
+			const enBlocks = document.querySelectorAll('.lang-content.en');
+			const esBlocks = document.querySelectorAll('.lang-content.es');
+			const label = document.getElementById('lang-label');
+			const flag = document.getElementById('lang-flag');
+			getActiveTaglineElement().innerHTML = '';
+			if (lang === 'en') {
+				lang = 'es';
+				enBlocks.forEach(el => el.classList.remove('active'));
+				esBlocks.forEach(el => el.classList.add('active'));
+				label.textContent = 'Español';
+				flag.src = 'https://flagcdn.com/mx.svg';
+				typeWriter(textES);
+			} 
+			else {
+				lang = 'en';
+				enBlocks.forEach(el => el.classList.add('active'));
+				esBlocks.forEach(el => el.classList.remove('active'));
+				label.textContent = 'English';
+				flag.src = 'https://flagcdn.com/us.svg';
+				typeWriter(textEN);
+			}
+		}		
+    	window.onload = () => typeWriter(textEN);
   </script>
 </body>
 </html>
-
